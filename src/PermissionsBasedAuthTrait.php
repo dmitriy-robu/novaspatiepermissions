@@ -179,11 +179,9 @@ trait PermissionsBasedAuthTrait
 
 	public static function hasPermissionsTo(Request $request, $ability)
 	{
-	
-		if($request->GetRequestUri()==config('nova.path')."/login"){
-			return true;
-		}
-		
+        if ($request->getRequestUri() == config('nova.login_path')) {
+            return true;
+        }
 		
 		if (isset(static::$permissionsForAbilities[$ability])) {
 			return $request->user()->can(static::$permissionsForAbilities[$ability]);
