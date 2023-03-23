@@ -2,21 +2,12 @@
 
 namespace Itsmejoshua\Novaspatiepermissions;
 
-use App\Enums\Permissions;
 use Laravel\Nova\Resource;
 use Spatie\Permission\Models\Role as SpatieRole;
 
 class Role extends Resource
 {
 	use RoleResourceTrait, PermissionsBasedAuthTrait;
-
-    public static $permissionsForAbilities = [
-        'create' => Permissions::CREATE_ROLE,
-        'update' => Permissions::UPDATE_ROLE,
-        'delete' => Permissions::DELETE_ROLE,
-        'viewAny' => Permissions::VIEW_ROLE,
-        'view' => Permissions::VIEW_ROLES,
-    ];
 
 	/**
 	 * The model the resource corresponds to.
