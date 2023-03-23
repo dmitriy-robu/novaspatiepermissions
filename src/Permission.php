@@ -7,8 +7,15 @@ use Spatie\Permission\Models\Permission as SpatiePermission;
 
 class Permission extends Resource
 {
-	use PermissionResourceTrait;
+	use PermissionResourceTrait, PermissionsBasedAuthTrait;
 
+    public static $permissionsForAbilities = [
+        'create' => Permissions::CREATE_PERMISSION,
+        'update' => Permissions::UPDATE_PERMISSION,
+        'delete' => Permissions::DELETE_PERMISSION,
+        'viewAny' => Permissions::VIEW_PERMISSION,
+        'view' => Permissions::VIEW_PERMISSIONS,
+    ];
 
 	/**
 	 * The model the resource corresponds to.
