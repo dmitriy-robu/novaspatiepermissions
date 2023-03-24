@@ -2,8 +2,8 @@
 
 namespace Itsmejoshua\Novaspatiepermissions;
 
-use Spatie\Permission\Models\Permission as SpatiePermission;
 use Laravel\Nova\Resource;
+use Spatie\Permission\Models\Permission as SpatiePermission;
 
 class Permission extends Resource
 {
