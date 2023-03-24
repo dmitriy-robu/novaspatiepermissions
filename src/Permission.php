@@ -3,7 +3,7 @@
 namespace Itsmejoshua\Novaspatiepermissions;
 
 use Spatie\Permission\Models\Permission as SpatiePermission;
-use App\Enums\Permissions;
+use Laravel\Nova\Resource;
 
 class Permission extends Resource
 {
