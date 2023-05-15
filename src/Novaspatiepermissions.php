@@ -65,15 +65,15 @@ class Novaspatiepermissions extends Tool
      */
     public function menu(Request $request)
     {
-    	
-        return [
-        	
-            MenuSection::make(__('nova-spatie-permissions::lang.sidebar_label'), [
-            		MenuItem::link(__('nova-spatie-permissions::lang.sidebar_label_roles'), 'resources/roles'),
-            		MenuItem::link(__('nova-spatie-permissions::lang.sidebar_label_permissions'), 'resources/permissions'),
+        if ($request->user()->roles[0]->name === 'admin') {
+            return [
+                MenuSection::make(__('nova-spatie-permissions::lang.sidebar_label'), [
+                    MenuItem::link(__('nova-spatie-permissions::lang.sidebar_label_roles'), 'resources/roles'),
+                    MenuItem::link(__('nova-spatie-permissions::lang.sidebar_label_permissions'), 'resources/permissions'),
                 ])->icon('key')->collapsable(),
-                
-                ];
+            ];
+        } else
+            return [];
     }
 }
 
