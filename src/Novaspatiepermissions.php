@@ -65,7 +65,7 @@ class Novaspatiepermissions extends Tool
      */
     public function menu(Request $request)
     {
-        if ($request->user()->roles[0]->name === 'admin') {
+        if ($request->user()->roles()->where('name', 'admin')->first() !== null) {
             return [
                 MenuSection::make(__('nova-spatie-permissions::lang.sidebar_label'), [
                     MenuItem::link(__('nova-spatie-permissions::lang.sidebar_label_roles'), 'resources/roles'),
